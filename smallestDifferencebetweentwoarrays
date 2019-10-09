@@ -1,0 +1,26 @@
+def smallestDifference(arrayOne, arrayTwo):
+    # Write your code here.
+    arrayOne.sort()
+    arrayTwo.sort()
+    idxone = 0
+    idxtwo = 0
+    smallest = float("inf")
+    current = float("inf")
+    smallestpair = []
+    while idxone < len(arrayOne) and idxtwo < len(arrayTwo):
+        firstnum = arrayOne[idxone]
+        secondnum = arrayTwo[idxtwo]
+        if firstnum < secondnum:
+            idxone +=1
+            current = secondnum - firstnum
+        elif secondnum < firstnum:
+            idxtwo +=1
+            current = firstnum - secondnum
+        else:
+            return[firstnum,secondnum]
+        if smallest > current:
+            smallest = current
+            smallestpair = [firstnum,secondnum]
+    return smallestpair
+    
+smallestDifference([10, 1000, 9124, 2142, 59, 24, 596, 591, 124, -123, 530], [-1441, -124, -25, 1014, 1500, 660, 410, 245, 530])
